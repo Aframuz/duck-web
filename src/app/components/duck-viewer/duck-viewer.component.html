@@ -1,0 +1,40 @@
+  <div class="flex-1 container mx-auto px-4 py-8 mb-24">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div *ngFor="let image of duckImages" class="group">
+        <a [href]="image" target="_blank" 
+           class="block overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+          <img [src]="image" [alt]="'Duck image ' + image"
+               class="w-full h-48 object-cover object-center">
+          <p class="p-2 text-center text-sm text-gray-600 bg-gray-50 group-hover:text-blue-600">
+            {{ image.split('/').pop() }}
+          </p>
+        </a>
+      </div>
+    </div>
+  
+    <div *ngIf="error" class="mt-4 p-4 bg-red-100 text-red-700 rounded-md">
+      {{ error }}
+    </div>
+  
+    <div class="fixed bottom-0 left-0 right-0 bg-white shadow-lg p-4">
+      <div class="container mx-auto max-w-2xl">
+        <form [formGroup]="duckForm" (ngSubmit)="fetchDucks()" class="flex items-center gap-4 flex-col md:flex-row md:justify-between">
+          <label class="flex items-center space-x-2 cursor-pointer">
+            <input type="checkbox" formControlName="isRandom" (change)="toggleMode()"
+                   class="form-checkbox h-5 w-5 text-blue-600">
+            <span class="text-gray-700">Random Duck</span>
+          </label>
+          
+          <input type="text" formControlName="id" placeholder="Enter duck ID"
+                 [class.hidden]="duckForm.get('isRandom')?.value"
+                 class="flex-1 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+          
+          <button type="submit" [disabled]="duckForm.invalid || loading"
+                  class="bg-blue-600 text-white py-2 px-6 rounded-md hover:bg-blue-700 
+                         transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+            {{ loading ? 'Loading...' : 'Get ducks!' }}
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
