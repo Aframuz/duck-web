@@ -4,6 +4,7 @@ import { provideHttpClient } from '@angular/common/http';
 
 bootstrapApplication(AppComponent, {
   providers: [
+    // enable HTTP requests
     provideHttpClient()
   ]
 }).catch(err => console.error(err));

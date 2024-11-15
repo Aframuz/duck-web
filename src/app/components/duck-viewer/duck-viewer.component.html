@@ -1,6 +1,7 @@
 <div class="flex-1 container mx-auto px-4 py-8 mt-8 mb-24">
   <h1 class="text-2xl text-center md:text-left md:text-4xl font-extrabold text-green-700 mb-16">Duck Image Viewer</h1>
 
+  <!-- Duck image section -->
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8 place-items-center mb-16">
     <div *ngFor="let image of duckImages" 
          [ngClass]="{
@@ -21,10 +22,12 @@
     </div>
   </div>
 
+  <!-- Error section -->
   <div *ngIf="error" class="mt-4 p-4 bg-red-100 text-red-700 rounded-md">
     {{ error }}
   </div>
 
+  <!-- Form section -->
   <div class="fixed bottom-0 left-0 right-0 bg-yellow-200 shadow-lg p-4">
     <div class="container mx-auto max-w-2xl">
       <form [formGroup]="duckForm" (ngSubmit)="fetchDucks()" class="flex items-center gap-4 flex-col md:flex-row md:justify-between">
