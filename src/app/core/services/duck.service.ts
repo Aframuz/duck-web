@@ -2,13 +2,14 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { DuckResponse } from "../models/duck.model";
+import { environment } from "../../../environments/environment";
 
 @Injectable({
     providedIn: "root"
 })
 
 export class DuckService {
-    private readonly BASE_URL = "/api/ducks"
+    private readonly BASE_URL = environment.API_URL
 
     // Enable HTTP requests
     constructor(private http: HttpClient) {}
