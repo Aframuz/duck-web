@@ -6,6 +6,7 @@ import { DuckService } from '../../core/services/duck.service';
 @Component({
   selector: 'app-duck-viewer',
   templateUrl: './duck-viewer.component.html',
+  styleUrl: './duck-viewer.component.css',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
 })

@@ -7,10 +7,10 @@ import { DuckViewerComponent } from './components/duck-viewer/duck-viewer.compon
   selector: 'app-root',
   standalone: true,
   imports: [CommonModule, HttpClientModule, DuckViewerComponent],
+  styleUrl: './app.component.css',
   template: `
-    <div class="min-h-screen bg-gray-100 flex flex-col">
-      <h1 class="text-3xl font-bold text-center py-8 bg-white shadow-sm">Duck Image Viewer</h1>
-      <app-duck-viewer></app-duck-viewer>
+    <div class="main min-h-screen bg-yellow-300 flex flex-col">
+      <app-duck-viewer class="min-h-screen"></app-duck-viewer>
     </div>
   `,
 })
