@@ -1,4 +1,4 @@
-# FDuck Frontend
+# Duck Frontend
 
 [Live Demo (Broken for the moment)](https://duck-web.vercel.app)
 Hecho con Angular version 18.2.11.
